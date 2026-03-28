@@ -125,7 +125,7 @@ export default function About() {
 
           <div className="grid-4" style={{ marginTop: '3rem' }}>
             {[
-              { num: '120+', label: 'Projects Completed', icon: '✅' },
+              { num: '80+', label: 'Projects Completed', icon: '✅' },
               { num: '98%', label: 'Client Satisfaction', icon: '⭐' },
               { num: '3×', label: 'Avg. ROI Delivered', icon: '📈' },
               { num: '0', label: 'Projects Abandoned', icon: '🔒' },

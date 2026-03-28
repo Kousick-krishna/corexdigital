@@ -33,10 +33,34 @@ export default function Contact() {
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
   const handleSubmit = e => {
-    e.preventDefault()
-    setLoading(true)
-    setTimeout(() => { setLoading(false); setSubmitted(true) }, 1600)
-  }
+  e.preventDefault()
+  setLoading(true)
+
+  // Build the WhatsApp message
+  const text = `🚀 *New Project Enquiry — Corex Digital*
+
+👤 *Name:* ${form.name}
+📧 *Email:* ${form.email}
+📱 *Phone:* ${form.phone || 'Not provided'}
+🏢 *Company:* ${form.company || 'Not provided'}
+🛠️ *Service Needed:* ${form.service}
+💰 *Budget Range:* ${form.budget || 'Not specified'}
+
+💬 *Message:*
+${form.message}`
+
+  const whatsappURL = `https://wa.me/917305758584?text=${encodeURIComponent(text)}`
+
+  // ✅ Open WhatsApp IMMEDIATELY — must be directly triggered by user click
+  // Browser blocks window.open() inside setTimeout as a popup
+  window.open(whatsappURL, '_blank')
+
+  // Then show success screen after a short delay
+  setTimeout(() => {
+    setLoading(false)
+    setSubmitted(true)
+  }, 800)
+}
 
   return (
     <div className="page-transition">
@@ -155,25 +179,25 @@ export default function Contact() {
                   </div>
 
                   <button
-                    type="submit"
-                    className="btn btn-primary"
-                    style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '1rem' }}
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <span style={{
-                          width: 18, height: 18,
-                          border: '2px solid rgba(255,255,255,0.3)',
-                          borderTopColor: '#fff',
-                          borderRadius: '50%',
-                          animation: 'spin 0.7s linear infinite',
-                          display: 'inline-block',
-                        }} />
-                        Sending…
-                      </span>
-                    ) : 'Send Message ↗'}
-                  </button>
+  type="submit"
+  className="btn btn-primary"
+  style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '1rem' }}
+  disabled={loading}
+>
+  {loading ? (
+    <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+      <span style={{
+        width: 18, height: 18,
+        border: '2px solid rgba(255,255,255,0.3)',
+        borderTopColor: '#fff',
+        borderRadius: '50%',
+        animation: 'spin 0.7s linear infinite',
+        display: 'inline-block',
+      }} />
+      Opening WhatsApp…
+    </span>
+  ) : 'Send Message ↗'}
+</button>
                 </form>
               )}
             </div>
@@ -191,8 +215,8 @@ export default function Contact() {
                 </div>
 
                 {[
-                  { icon: '📧', label: 'Email Us', value: 'hello@corexdigital.in' },
-                  { icon: '📱', label: 'Call / WhatsApp', value: '+91 98765 43210' },
+                  { icon: '📧', label: 'Email Us', value: 'info@corexdigital.in' },
+                  { icon: '📱', label: 'Call / WhatsApp', value: '+91 7305758584' },
                   { icon: '📍', label: 'Based In', value: 'India (Serving Globally)' },
                   { icon: '⏰', label: 'Response Time', value: 'Within 24 hours' },
                 ].map((info, i) => (
@@ -204,45 +228,6 @@ export default function Contact() {
                     </div>
                   </div>
                 ))}
-
-                {/* Social Links */}
-                <div className="card" style={{ marginTop: '0.5rem' }}>
-                  <h4 style={{
-                    fontSize: '0.8rem', letterSpacing: '0.12em',
-                    textTransform: 'uppercase', color: 'var(--text2)',
-                    marginBottom: '1rem',
-                  }}>Follow Corex</h4>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                    {[
-                      { label: 'Instagram', icon: '📸', handle: '@corexdigital' },
-                      { label: 'Twitter/X', icon: '🐦', handle: '@corexdigital' },
-                      { label: 'LinkedIn', icon: '💼', handle: 'Corex Digital' },
-                    ].map(s => (
-                      <a key={s.label} href="#" style={{
-                        display: 'flex', alignItems: 'center', gap: '0.5rem',
-                        padding: '0.5rem 1rem',
-                        background: 'var(--bg3)',
-                        border: '1px solid var(--border2)',
-                        borderRadius: 99,
-                        fontSize: '0.8rem',
-                        color: 'var(--text2)',
-                        transition: 'all 0.3s',
-                      }}
-                        onMouseEnter={e => {
-                          e.currentTarget.style.borderColor = 'var(--primary)'
-                          e.currentTarget.style.color = 'var(--primary)'
-                        }}
-                        onMouseLeave={e => {
-                          e.currentTarget.style.borderColor = 'var(--border2)'
-                          e.currentTarget.style.color = 'var(--text2)'
-                        }}
-                      >
-                        <span>{s.icon}</span>
-                        <span>{s.handle}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
 
                 {/* Quick CTA */}
                 <div style={{
@@ -260,7 +245,7 @@ export default function Contact() {
                     Book a 30-minute free strategy session — no strings attached.
                   </p>
                   <a
-                    href="#"
+                    href="tel:+917305758584"
                     className="btn btn-primary"
                     style={{ width: '100%', justifyContent: 'center', fontSize: '0.9rem' }}
                   >

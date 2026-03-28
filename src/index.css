@@ -1004,3 +1004,55 @@ p  { line-height: 1.75; color: var(--text2); }
   border-radius:var(--radius);
   padding:2rem;
 }
+/* ── Logo image ── */
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+.nav-logo-crop {
+  width: 210px;          /* was 180px — extra room for the X tip */
+  height: 44px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  position: absolute;
+  width: 420px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -50%);   /* was -50%, shift slightly right to expose the X */
+  mix-blend-mode: screen;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.nav-logo-img:hover { opacity: 0.8; }
+
+@media (max-width: 768px) {
+  /* Logo flush to the left */
+  .nav-logo-link {
+    margin-right: auto;   /* pushes everything else to the right */
+  }
+
+  .nav-logo-crop { width: 155px; height: 34px; }
+  .nav-logo-img  { width: 320px; transform: translate(-48%, -50%); }
+
+  /* Theme toggler + hamburger grouped tight on the right */
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;           /* tight gap between toggler and hamburger */
+    margin-left: auto;
+  }
+
+  /* Hide desktop CTA button on mobile */
+  .desktop-cta-btn { display: none !important; }
+
+  /* Hide desktop nav links */
+  .nav-links { display: none !important; }
+}

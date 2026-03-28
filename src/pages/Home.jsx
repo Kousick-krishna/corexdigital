@@ -12,10 +12,10 @@ const SERVICES_PREVIEW = [
 ]
 
 const STATS = [
-  { num: '120+', label: 'Projects Delivered' },
-  { num: '80+', label: 'Happy Clients' },
-  { num: '5+', label: 'Years of Excellence' },
-  { num: '15+', label: 'Industries Served' },
+  { num: '80+', label: 'Projects Delivered' },
+  { num: '30+', label: 'Happy Clients' },
+  { num: '1+', label: 'Years of Excellence' },
+  { num: '7+', label: 'Industries Served' },
 ]
 
 const MARQUEE_ITEMS = [
@@ -104,7 +104,7 @@ export default function Home() {
             <div className="hero-content">
               <div className="hero-tag">
                 <span className="hero-tag-dot" />
-                Full-Stack Digital Agency
+                End-to-End Digital Agency
               </div>
 
               <h1>
@@ -130,29 +130,62 @@ export default function Home() {
             </div>
 
             <div className="hero-visual">
-              <div className="hero-orb-wrap">
-                <div className="hero-ring" />
-                <div className="hero-ring-2" />
-                <div className="hero-center-orb" />
-                <div className="hero-icon-float">🌐</div>
-                <div className="hero-icon-float">📱</div>
-                <div className="hero-icon-float">📈</div>
-                <div className="hero-icon-float">🎬</div>
-                {/* Center logo */}
-                <div style={{
-                  position: 'absolute', inset: '25%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'Orbitron, sans-serif', fontWeight: 900,
-                  fontSize: 'clamp(1.2rem,3vw,1.8rem)',
-                  background: 'linear-gradient(135deg,var(--primary),var(--secondary))',
-                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  animation: 'pulse 3s ease-in-out infinite',
-                }}>
-                  COREX
-                </div>
-              </div>
-            </div>
+  <div className="hero-orb-wrap">
+    <div className="hero-ring" />
+    <div className="hero-ring-2" />
+
+    {/* Extra inner ring */}
+    <div style={{
+      position: 'absolute', inset: '35px',
+      borderRadius: '50%',
+      border: '1px dashed var(--border2)',
+      animation: 'spin 25s linear infinite',
+      opacity: 0.5,
+    }} />
+
+    <div className="hero-center-orb" />
+
+    {/* ── Floating service icons — positioned around the rings ── */}
+
+    {/* Top */}
+    <div className="hero-icon-float" style={{ top: '2%', left: '50%', transform: 'translateX(-50%)' }}>🌐</div>
+
+    {/* Top right */}
+    <div className="hero-icon-float" style={{ top: '15%', right: '2%', animationDelay: '0.8s' }}>📱</div>
+
+    {/* Right */}
+    <div className="hero-icon-float" style={{ top: '45%', right: '-2%', animationDelay: '1.5s' }}>📈</div>
+
+    {/* Bottom right */}
+    <div className="hero-icon-float" style={{ bottom: '12%', right: '5%', animationDelay: '2.2s' }}>🎯</div>
+
+    {/* Bottom */}
+    <div className="hero-icon-float" style={{ bottom: '0%', left: '50%', transform: 'translateX(-50%)', animationDelay: '3s' }}>🎬</div>
+
+    {/* Bottom left */}
+    <div className="hero-icon-float" style={{ bottom: '12%', left: '5%', animationDelay: '3.8s' }}>🤝</div>
+
+    {/* Left */}
+    <div className="hero-icon-float" style={{ top: '45%', left: '-2%', animationDelay: '4.5s' }}>📣</div>
+
+    {/* Top left */}
+    <div className="hero-icon-float" style={{ top: '15%', left: '2%', animationDelay: '5.2s' }}>🔍</div>
+
+    {/* Center logo text */}
+    <div style={{
+      position: 'absolute', inset: '25%',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      fontFamily: 'Orbitron, sans-serif', fontWeight: 900,
+      fontSize: 'clamp(1.2rem,3vw,1.8rem)',
+      background: 'linear-gradient(135deg,var(--primary),var(--secondary))',
+      WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
+      animation: 'pulse 3s ease-in-out infinite',
+    }}>
+      COREX
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </section>
