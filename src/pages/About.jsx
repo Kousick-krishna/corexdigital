@@ -1,23 +1,6 @@
 import { Link } from 'react-router-dom'
 import useReveal from '../components/useReveal'
 
-const TEAM = [
-  {
-    emoji: '🧠',
-    name: 'Alex Mercer',
-    role: 'Creative Director & Co-Founder',
-    bio: 'A visionary creative with over 8 years of experience building brands that resonate. Alex leads the design and strategy arm of Corex, combining bold aesthetics with measurable business impact.',
-    skills: ['Brand Strategy', 'UI/UX', 'Creative Direction'],
-  },
-  {
-    emoji: '⚡',
-    name: 'Jordan Kim',
-    role: 'Digital Growth Lead & Co-Founder',
-    bio: 'A performance-obsessed marketer and developer who lives at the intersection of code and commerce. Jordan drives Corex digital campaigns, technical builds, and growth engines.',
-    skills: ['Dev & Tech', 'Performance Marketing', 'SEO'],
-  },
-]
-
 const VALUES = [
   { icon: '💡', title: 'Innovation First', desc: 'We stay ahead of trends and adopt emerging technologies before they go mainstream.' },
   { icon: '🎯', title: 'Precision Execution', desc: 'Every pixel, every word, every ad — crafted with intention and measured against outcomes.' },
@@ -66,31 +49,6 @@ export default function About() {
                 where a great product meets a great strategy and the world takes notice.
               </p>
             </div>
-          </div>
-
-          {/* Team */}
-          <div className="text-center mb-3 reveal">
-            <div className="section-label" style={{ justifyContent: 'center' }}>Meet the Team</div>
-            <h2>The People <span className="gradient-text">Powering</span> Your Growth</h2>
-          </div>
-
-          <div className="grid-2" style={{ maxWidth: 800, margin: '0 auto 5rem', gap: '2rem' }}>
-            {TEAM.map((member, i) => (
-              <div key={i} className={`team-card reveal delay-${i + 1}`}>
-                <div className="team-avatar">{member.emoji}</div>
-                <h3>{member.name}</h3>
-                <div className="team-role">{member.role}</div>
-                <p className="team-bio">{member.bio}</p>
-                <div className="tag-strip" style={{ justifyContent: 'center', marginTop: '1.25rem' }}>
-                  {member.skills.map(s => <span key={s} className="tag">{s}</span>)}
-                </div>
-                <div className="team-socials">
-                  {['X', 'IG', 'in'].map(s => (
-                    <a key={s} href="#" className="social-pill" style={{ width: 32, height: 32, fontSize: '0.75rem' }}>{s}</a>
-                  ))}
-                </div>
-              </div>
-            ))}
           </div>
 
           {/* Values */}

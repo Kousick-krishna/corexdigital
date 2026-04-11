@@ -38,65 +38,6 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <section className="section">
-        <div className="container">
-          {/* Filters */}
-          <div className="port-filters">
-            {FILTERS.map(f => (
-              <button
-                key={f}
-                className={`port-filter-btn ${active === f ? 'active' : ''}`}
-                onClick={() => setActive(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-
-          {/* Grid */}
-          <div className="port-grid">
-            {filtered.map((p, i) => (
-              <div
-                key={p.title}
-                className="port-card"
-                style={{
-                  animation: `scaleIn 0.4s var(--easing) ${i * 0.06}s both`,
-                }}
-              >
-                <div className="port-card-img" style={{
-                  background: `radial-gradient(circle at 50% 50%, ${p.color}18, var(--bg3))`,
-                  fontSize: '4rem',
-                }}>
-                  {p.icon}
-                </div>
-                <div className="port-overlay">
-                  <span className="port-tag" style={{ background: p.color, color: p.color === '#FFB800' ? '#000' : '#fff' }}>
-                    {p.tag}
-                  </span>
-                  <h4>{p.title}</h4>
-                  <p>{p.sub}</p>
-                  <div style={{
-                    marginTop: '0.5rem',
-                    fontSize: '0.8rem',
-                    fontWeight: 600,
-                    color: p.color,
-                    fontFamily: 'Syne, sans-serif',
-                  }}>
-                    {p.result}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {filtered.length === 0 && (
-            <div style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--text2)' }}>
-              No projects in this category yet. More coming soon!
-            </div>
-          )}
-        </div>
-      </section>
-
       {/* Testimonials strip */}
       <section className="section" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
